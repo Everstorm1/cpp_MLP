@@ -33,7 +33,7 @@ struct HiddenLayer{
 
     std::string activationFunction;
 
-    std::vector<std::vector<double>> weights;
+    std::vector<std::vector<double>> weights; //dim-0: neuron, dim-1: weight per input
     std::vector<double> biases;
 
     //constructor
