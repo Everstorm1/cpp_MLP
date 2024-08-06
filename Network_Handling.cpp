@@ -100,13 +100,19 @@ private:
 
 int main(){
 
-    std::vector<double> input = {0, 1, 0, 1};
-    Layer hiddenLayer1(4, 6, "relu");
-    Layer hiddenLayer2(6, 6, "relu");
-    Layer outputLayer(6, 2, "sigmoid");
+    std::vector<double> input = {0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0};
+    Layer hiddenLayer1(12, 256, "relu");
+    Layer hiddenLayer2(256, 1024, "relu");
+    Layer hiddenLayer3(1024, 2056, "relu");
+    Layer hiddenLayer4(2056, 4112, "relu");
+    Layer hiddenLayer5(4112, 1024, "relu");
+    Layer outputLayer(1024, 2, "sigmoid");
 
     Network network({hiddenLayer1,
                      hiddenLayer2,
+                     hiddenLayer3,
+                     hiddenLayer4,
+                     hiddenLayer5,
                      outputLayer  });
 
     std::vector<double> output = network.forwardPass(input);
@@ -117,6 +123,6 @@ int main(){
         std::cout << value << ", ";
     }
     std::cout << std::endl;
-
+    
     return 0;
 }
