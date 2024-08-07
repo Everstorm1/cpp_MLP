@@ -54,7 +54,7 @@ double handleActivationFunction(double& inputVal, std::string& activationFunctio
     return 0;
 }
 
-Network::Network(std::vector<Layer> layerssss) : layers(layerssss){}
+Network::Network(std::vector<Layer> layers_) : layers(layers_){}
 
 std::vector<double> Network::forwardPass(std::vector<double> input){
     std::vector<double> output = input;
